@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import "./fontawesome/scss/fontawesome.scss";
+@import "./fontawesome/scss/solid.scss";
+@import "./fontawesome/scss/brands.scss";
 
 body{
     height: 100%;
@@ -44,6 +47,10 @@ body{
                     &-number{
                         font-size: 25px;
                         text-align: center; 
+                        font-weight: 600;
+                        height: 30px;
+                        max-width: 272px;
+                        overflow: hidden;
                     }
                 }
             }
@@ -51,6 +58,7 @@ body{
             &-numbers{
                 display: flex;
                 flex-wrap: wrap;
+                padding: 0 15px;
 
                 li{
                     width: 33%;
@@ -58,6 +66,7 @@ body{
                     align-items: center;
                     justify-content: center;
                     margin: 10px 0;
+                    cursor: pointer;
 
                     &.turing__phone-special{
                         div{
@@ -70,13 +79,18 @@ body{
                         width: 60px;
                         height: 60px;
                         font-weight: 800;
-                        background: #ddd;
+                        background: #eee;
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         flex-direction: column;
                         font-size: 21px;
+
+                        p{
+                            margin: 0;
+                            padding: 0;
+                        }
                         
                         span{
                             font-size: 10px;
@@ -110,16 +124,39 @@ body{
                 background-color: #3DC445;
                 outline: none;
                 cursor: pointer;
+                @extend %fa-icon;
+                @extend .fas;
+
+                &:before {
+                    content: fa-content($fa-var-phone);
+                    font-size: 20px;
+                    color: #fff;
+                }
             }
 
             &-clear{
-                background: #ddd;
+                background: #eee;
                 appearance: none;
                 border: 0;
                 outline: none;
                 cursor: pointer;
                 padding: 2px 10px;
                 font-size: 18px;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                position: relative;
+
+                &:before{
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 13px 15px 12px 0;
+                    top: 0;
+                    border-color: transparent #eee transparent transparent;
+                    left: -15px;
+                }
             }
         }
     }

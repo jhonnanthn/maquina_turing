@@ -1,15 +1,20 @@
-package tm;
+package br.com.usjt.turing;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+import br.com.usjt.turing.model.Turing;
 
 public class TuringMachine {
+	
 	private Set<String> StateSpace;
 	private Set<Transition> TransitionSpace;
 	private String StartState;
 	private String AcceptState;
 	private String RejectState;
-	private String OrigemLigacao;
-	private String PaisLigacao;
+//	private String OrigemLigacao;
+//	private String PaisLigacao;
 
 	private String Tape;
 	private String CurrentState;
@@ -37,8 +42,8 @@ public class TuringMachine {
 		StartState = new String("");
 		AcceptState = new String("");
 		RejectState = new String("");
-		OrigemLigacao = new String("");
-		PaisLigacao = new String("");
+//		OrigemLigacao = new String("");
+//		PaisLigacao = new String("");
 		Tape = new String("");
 		CurrentState = new String("");
 		CurrentSymbol = 0;
@@ -79,18 +84,24 @@ public class TuringMachine {
 						+ Tape.charAt(CurrentSymbol) + ")");
 				return turing;
 			} else {
-				if(CurrentTransition.readState.equals("q3") && CurrentTransition.readSymbol == '3'){
+				if (CurrentTransition.readState.equals("q3") && CurrentTransition.readSymbol == '3') {
 					turing.setPais("Brasil");
-				} else if(CurrentTransition.readState.equals("q0") && CurrentTransition.readSymbol == '0') {
+				} else if (CurrentTransition.readState.equals("q0") && CurrentTransition.readSymbol == '0') {
 					turing.setPais("França");
 				}
-				if(CurrentTransition.readState.equals("q1")) {
-					if(CurrentTransition.readSymbol == '1') turing.setRegiao("Região Parisiense (Île-de-France)");
-					if(CurrentTransition.readSymbol == '2') turing.setRegiao("Noroeste da França e dependências no Oceano Índico");
-					if(CurrentTransition.readSymbol == '3') turing.setRegiao("Nordeste da França");
-					if(CurrentTransition.readSymbol == '4') turing.setRegiao("Sudeste da França");
-					if(CurrentTransition.readSymbol == '5') turing.setRegiao("Sudoeste da França e dependências no Atlântico");
-					if(CurrentTransition.readSymbol == '6') turing.setRegiao("Telefonia Móvel");
+				if (CurrentTransition.readState.equals("q1")) {
+					if (CurrentTransition.readSymbol == '1')
+						turing.setRegiao("Região Parisiense (Île-de-France)");
+					if (CurrentTransition.readSymbol == '2')
+						turing.setRegiao("Noroeste da França e dependências no Oceano Índico");
+					if (CurrentTransition.readSymbol == '3')
+						turing.setRegiao("Nordeste da França");
+					if (CurrentTransition.readSymbol == '4')
+						turing.setRegiao("Sudeste da França");
+					if (CurrentTransition.readSymbol == '5')
+						turing.setRegiao("Sudoeste da França e dependências no Atlântico");
+					if (CurrentTransition.readSymbol == '6')
+						turing.setRegiao("Telefonia Móvel");
 				}
 				CurrentState = CurrentTransition.writeState;
 				char[] tempTape = Tape.toCharArray();

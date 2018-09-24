@@ -1,11 +1,14 @@
-package tm;
+package br.com.usjt.turing.library;
 
-public final class MachinesLibrary 
-{
-	private MachinesLibrary() {}
+import br.com.usjt.turing.TuringMachine;
+
+public final class MachinesLibrary {
 	
-	public static TuringMachine EqualBinaryWords()
-	{
+	private MachinesLibrary() {
+	}
+
+	public static TuringMachine EqualBinaryWords() {
+		
 		TuringMachine newTM = new TuringMachine();
 		newTM.addState("q0");
 		newTM.addState("q1");
@@ -17,18 +20,18 @@ public final class MachinesLibrary
 		newTM.setStartState("q0");
 		newTM.setAcceptState("qa");
 		newTM.setRejectState("qr");
-		
+
 		newTM.addTransition("q0", '3', "q3", 'x', true);
 		newTM.addTransition("q0", '0', "q1", 'x', true);
-		
+
 		newTM.addTransition("q1", '1', "q4", 'x', true);
 		newTM.addTransition("q1", '2', "q4", 'x', true);
 		newTM.addTransition("q1", '3', "q4", 'x', true);
 		newTM.addTransition("q1", '4', "q4", 'x', true);
 		newTM.addTransition("q1", '5', "q4", 'x', true);
-		
+
 		newTM.addTransition("q3", '3', "q1", 'x', true);
-		
+
 		newTM.addTransition("q4", '0', "q4", 'x', true);
 		newTM.addTransition("q4", '1', "q4", 'x', true);
 		newTM.addTransition("q4", '2', "q4", 'x', true);
@@ -39,14 +42,13 @@ public final class MachinesLibrary
 		newTM.addTransition("q4", '7', "q4", 'x', true);
 		newTM.addTransition("q4", '8', "q4", 'x', true);
 		newTM.addTransition("q4", '9', "q4", 'x', true);
+		
 		newTM.addTransition("q4", 'x', "q2", 'x', true);
 		newTM.addTransition("q4", '_', "q2", 'x', true);
 
-		
 		newTM.addTransition("q2", 'x', "q2", 'x', true);
 		newTM.addTransition("q2", '_', "qa", '_', true);
-		
-		return newTM;		
-	}
 
+		return newTM;
+	}
 }

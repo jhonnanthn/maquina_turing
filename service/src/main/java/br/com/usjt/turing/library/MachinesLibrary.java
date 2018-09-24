@@ -18,6 +18,7 @@ public final class MachinesLibrary {
 		newTM.addState("q5");
 		newTM.addState("q6");
 		newTM.addState("q7");
+		newTM.addState("q8");
 		newTM.addState("qa");
 		newTM.addState("qr");
 		newTM.setStartState("q0");
@@ -26,7 +27,7 @@ public final class MachinesLibrary {
 
 		newTM.addTransition("q0", '0', "q1", 'x', true);
 		newTM.addTransition("q0", '1', "q5", 'x', true);
-		newTM.addTransition("q0", '2', "q5", 'x', true);
+		newTM.addTransition("q0", '2', "q6", 'x', true);
 
 		newTM.addTransition("q1", '1', "q4", 'x', true);
 		newTM.addTransition("q1", '2', "q4", 'x', true);
@@ -53,12 +54,12 @@ public final class MachinesLibrary {
 		newTM.addTransition("q2", 'x', "q2", 'x', true);
 		newTM.addTransition("q2", '_', "qa", '_', true);
 		
-		newTM.addTransition("q5", '5', "q6", 'x', true);
-		newTM.addTransition("q5", '1', "q6", 'x', true);
+		newTM.addTransition("q5", '5', "q7", 'x', true);
 		
-		
-		newTM.addTransition("q6", '3', "q7", 'x', true);
-		newTM.addTransition("q7", '3', "q1", 'x', true);
+		newTM.addTransition("q6", '1', "q7", 'x', true);
+
+		newTM.addTransition("q7", '3', "q8", 'x', true);
+		newTM.addTransition("q8", '3', "q1", 'x', true);
 
 		return newTM;
 	}

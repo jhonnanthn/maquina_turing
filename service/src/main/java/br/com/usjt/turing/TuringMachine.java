@@ -78,13 +78,13 @@ public class TuringMachine {
 				}
 			}
 
-			if (foundTransition == false || input.length() < 10 || input.length() > 11) {
+			if (foundTransition == false || !(input.length() == 10) || !(input.length() == 13)) {
 				turing.setStatus("Ligação Inválida.");
 				System.err.println("There is no valid transition for this phase! (state=" + CurrentState + ", symbol="
 						+ Tape.charAt(CurrentSymbol) + ")");
 				return turing;
 			} else {
-				if (CurrentTransition.readState.equals("q3") && CurrentTransition.readSymbol == '3') {
+				if (CurrentTransition.readState.equals("q7") && CurrentTransition.readSymbol == '3') {
 					turing.setPais("Brasil");
 				} else if (CurrentTransition.readState.equals("q0") && CurrentTransition.readSymbol == '0') {
 					turing.setPais("França");
@@ -102,6 +102,8 @@ public class TuringMachine {
 						turing.setRegiao("Sudoeste da França e dependências no Atlântico");
 					if (CurrentTransition.readSymbol == '6')
 						turing.setRegiao("Telefonia Móvel");
+					if (CurrentTransition.readSymbol == '7')
+						turing.setRegiao("Telefones Celulares e aparelhos M2M");
 				}
 				CurrentState = CurrentTransition.writeState;
 				char[] tempTape = Tape.toCharArray();

@@ -78,18 +78,18 @@ public class TuringMachine {
 				}
 			}
 
-			if (foundTransition == false || !(input.length() == 10 || input.length() == 13)) {
+			if (foundTransition == false || !(input.length() == 10 || input.length() == 15)) {
 				turing.setStatus("Ligação Inválida.");
 				System.err.println("There is no valid transition for this phase! (state=" + CurrentState + ", symbol="
 						+ Tape.charAt(CurrentSymbol) + ")");
 				return turing;
 			} else {
-				if (CurrentTransition.readState.equals("q8") && CurrentTransition.readSymbol == '3') {
+				if (CurrentTransition.readState.equals("q7") && CurrentTransition.readSymbol == '3') {
 					turing.setPais("Brasil");
-				} else if (CurrentTransition.readState.equals("q0") && CurrentTransition.readSymbol == '0') {
+				} else if (CurrentTransition.readState.equals("q1") && CurrentTransition.readSymbol != '0') {
 					turing.setPais("França");
 				}
-				if (CurrentTransition.readState.equals("q1")) {
+				if (CurrentTransition.readState.equals("q1") || CurrentTransition.readState.equals("q10")) {
 					if (CurrentTransition.readSymbol == '1')
 						turing.setRegiao("Região Parisiense (Île-de-France)");
 					if (CurrentTransition.readSymbol == '2')

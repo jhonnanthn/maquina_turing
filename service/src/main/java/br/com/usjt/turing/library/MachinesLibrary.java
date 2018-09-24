@@ -34,6 +34,8 @@ public final class MachinesLibrary {
 		newTM.addTransition("q1", '3', "q4", 'x', true);
 		newTM.addTransition("q1", '4', "q4", 'x', true);
 		newTM.addTransition("q1", '5', "q4", 'x', true);
+		newTM.addTransition("q1", '6', "q4", 'x', true);
+		newTM.addTransition("q1", '7', "q4", 'x', true);
 
 		newTM.addTransition("q3", '3', "q1", 'x', true);
 
@@ -45,8 +47,6 @@ public final class MachinesLibrary {
 		newTM.addTransition("q4", '5', "q4", 'x', true);
 		newTM.addTransition("q4", '6', "q4", 'x', true);
 		newTM.addTransition("q4", '7', "q4", 'x', true);
-		newTM.addTransition("q4", '8', "q4", 'x', true);
-		newTM.addTransition("q4", '9', "q4", 'x', true);
 		
 		newTM.addTransition("q4", 'x', "q2", 'x', true);
 		newTM.addTransition("q4", '_', "q2", 'x', true);
